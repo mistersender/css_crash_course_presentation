@@ -1,0 +1,20 @@
+
+get-color(color, stop=0){
+  the_color = site.colors[color] || color
+  tint_percentage = 16%
+  if(stop > 6){
+    stop = 6;
+  }
+  if(stop < -6){
+    stop = -6;
+  }
+
+  if(stop < 0){
+    return tint(the_color, abs(stop) * tint_percentage);
+  }
+  else if(stop > 0){
+    return shade(the_color, abs(stop) * tint_percentage);
+  }
+
+  return the_color;
+}

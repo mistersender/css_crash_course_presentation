@@ -1,0 +1,52 @@
+@require 'helpers'
+
+// walkghrough:
+// * gulp task / starting
+// * reloading and auto-building
+// * stylus files
+//
+// * autoprefixer
+// * color function
+// * simplified_bem mixin
+//
+// Flexbox
+// display: flex;
+// flex-flow: row-nowrap;
+// flex: 1
+// open flexbox site.
+//
+// Units of measure:
+// * px
+// * em
+// * rem
+// * vw/vh, vmax, vmin
+
+// @require '../../node_modules/b2b-theme/dist/helpers'
+@require './helpers'
+h1{
+  color: green
+}
+.test{
+  padding: 5px;
+  margin: 20px;
+  background: #ccc;
+  border: 10px solid currentColor;
+  color: get-color('primary', 4);
+  display flex
+  // float-up(1)
+  transition: all 0.2s ease-out;
+  &:hover{
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.pseudo
+  +simplified_bem()
+    color: get-color('primary', -4);
+    background: get-color('primary', 4)
+
+    &:after
+      content: "This text isn't even in the dom.. what??"
+      padding: 0 1em;
+

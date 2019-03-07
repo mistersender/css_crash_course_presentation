@@ -1,0 +1,6 @@
+// floats an object up off the page ala material design by a certain stop amount
+// ie: `float-up(2)`
+float-up(stop = 0, color = 'black')
+  the_amount = (stop + 1) * 4px
+
+  box-shadow: 0 the_amount (the_amount * 4) ((0 - (the_amount * 2)) / 3) rgba(get-color(color), 0.6)

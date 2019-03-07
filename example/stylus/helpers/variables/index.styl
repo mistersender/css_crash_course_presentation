@@ -1,0 +1,48 @@
+site := {
+  colors: {
+    // general colors
+    white: #fff,
+    black: #000,
+    gray: #505050,
+    border: #D8D9D8,
+
+    // main site colors
+    primary: #00AFDB,
+    secondary: #20CE6E,
+    tertiary: #253D56,
+    quaternary: #E17900,
+
+    // messaging colors
+    success: #2FCC72,
+    info: #44596e,
+    warning: #E17900,
+    danger: #F34A1A,
+  },
+  border: {
+    radius: 2px,
+    standard: 1px solid black // this will be overridden below
+  },
+  wrapper: {
+    top: 2rem,
+    bottom: 2rem,
+    left: 1.5rem,
+    right: 1.5rem
+  },
+  header: {
+    height: 6rem // aka 60px
+  },
+  footer: {
+    height: 5rem // aka 50px
+  },
+  custom: {
+    includes: (), // list of custom files to include in the build. if none exists, it will add :allthethings:
+    include: true // whether to include custom css in the build at all
+  },
+  icons: { // both of these will be filled in from the `/icons` folder
+    glyphicons: {},
+    custom: {}
+  }
+}
+
+// overrides we need to set because they use a default themselves
+site.border.standard = 1px solid site.colors.border

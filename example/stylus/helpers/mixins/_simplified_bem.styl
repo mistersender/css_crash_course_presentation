@@ -1,0 +1,34 @@
+///
+/// @name Simplified BEM Mixin
+/// @description
+/// A mixin that adds in the additional styles for creating simplified BEM blocks & elements
+/// By using this mixin at the top level of a component's block and element declarations, we will be able to use simplified
+/// syntax in our html markup. For example, if we had a component of `btn`, we may write the html
+/// for it to look something like this:
+/// ```html
+/// <button class="btn btn--secondary">Secondary Button</button>
+/// ```
+/// However, using this mixin, our html will be able to use components more simply, so the same button could now
+/// be represented in our HTML thusly:
+/// ```html
+/// <button class="btn--secondary">Secondary Button</button>
+/// ```
+/// **Note:** in order to use this component properly, it must be declared at the top of the component, with any
+/// styles representative of the main component as a child of the mixin, as shown in the example.
+///
+/// @markup {styl}
+/// .my-component
+///   +simplified_bem()
+///     background: green
+///     display: block
+///
+///   &--sample
+///     background: purple
+simplified_bem()
+  $class = unquote(selector())
+  $modifier = unquote(slice($class, 1)) + '--'
+
+  $selectors = s("%s, [class^='%s'], [class*=' %s']", $class, $modifier, $modifier)
+
+  /{$selectors}
+    {block}

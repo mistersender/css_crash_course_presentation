@@ -1,0 +1,27 @@
+{
+  "name": "css_crash_course_presentation",
+  "version": "1.0.0",
+  "description": "CSS Crash Course, know enough to get by",
+  "main": "gulpfile.js",
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"testing, shmesting\"",
+    "start": "gulp watch",
+    "build": "gulp build"
+  },
+  "author": "Jessica Kennedy <jessica.kennedy@inmar.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-stylus": "^2.6.0"
+  }
+}

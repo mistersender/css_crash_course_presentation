@@ -1,0 +1,1405 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>CSS Crash Course</title>
+
+    <meta name="author" content="Jessica Kennedy">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/simple.css" id="theme">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <style>
+    .hljs{
+      background-color: #060606
+    }
+    .reveal .spaced-out * + * {
+      margin-top: 1em;
+    }
+    .reveal .foo {
+      background: #ccc;
+      height: 60px;
+      margin-top: 1em;
+    }
+    .foo__bar {
+      background: #69c;
+      height: 100px;
+      z-index: 100;
+      width: 230px;
+    }
+    .foo--active{
+      position: relative;
+      z-index: 10;
+    }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <p>This slide intentionally left blank.</p>
+          <ul>
+            <li>turn off hot corners</li>
+            <li>start dev server for demo</li>
+          </ul>
+          <aside class="notes">
+            turn off hot corners!<br>
+          </aside>
+        </section>
+
+        <section>
+          <h1>CSS Fundamentals</h1>
+          <h3>A Crash Course in CSS</h3>
+          <p>
+            <small>Created by <a href="http://mistersender.com">Jessica Kennedy</a> / <a href="http://twitter.com/mistersender">@mistersender</a></small>
+          </p>
+        </section>
+        <!-- Examples because lazy:
+          <p><code class="il">320px</code> is your new "base" size.</p>
+          <p class="fragment">This: <code class="il">@media ( min-width: 568px ) {}</code></p>
+        -->
+        <section class='c-grid'>
+          <div>
+            <figure class="c-me" style="background-image: url(images/me.jpg)">
+              Me, Jessica Kennedy!
+            </figure>
+          </div>
+          <div style = 'flex: calc(100% - 300px)'>
+            <h2>Who am I?</h2>
+            <ul>
+              <li>Senior Software Engineer</li>
+              <li>Specializing in UI/UX E-Comm</li>
+              <li>Polyglot org for ~3 years</li>
+            </ul>
+          </div>
+        </section>
+        <section style=" padding-top: 0;">
+          <img src="images/things/collage.jpg" alt="Favorite things" style="margin: 0;" />
+        </section>
+<!-- what we'll cover? -->
+        <!-- <section>
+          <h3>What We Will Cover</h3>
+          <ul>
+            <li class="fragment">Syntax & Definitions</li>
+            <li class="fragment">The Cascade</li>
+            <li class="fragment">Semantic CSS</li>
+            <li class="fragment">Dev Tools</li>
+            <li class="fragment">Box Model</li>
+          </ul>
+        </section> -->
+
+<!-- syntax & definitions -->
+				<section>
+          <h1>Syntax & Definitions</h1>
+				</section>
+        <section>
+          <h2>CSS</h2>
+          <div class="fragment">
+            <p><strong>C</strong>ascading</p>
+            <p><strong>S</strong>tyle</p>
+            <p><strong>S</strong>heet</p>
+          </div>
+          <p class="fragment">How HTML markup should <i>Look</i></p>
+        </section>
+        <section>
+          <h2>Rules</h2>
+          <p>How CSS applies style to HTML elements</p>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<div class="my-selector">
+  This text will be green!
+</div>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+.my-selector {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Rule Anatomy</h2>
+          <img src="images/anatomy-of-a-css-rule.gif" alt="anatomy of a css rule">
+        </section>
+        <section>
+          <h1>Selectors</h1>
+          <p>How CSS knows what elements to apply rules to</p>
+        </section>
+        <section>
+          <h2><code class="il">element</code> Selectors</h2>
+          <p>Selects all elements</p>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<h1>
+  I'll be green
+</h1>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+h1 {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2><code class="il">.class</code> Selectors</h2>
+          <p>Selects all elements with a particular class</p>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<div class="my-class-selector">
+  I'll be green
+</div>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+.my-class-selector {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2><code class="il">#id</code> Selectors</h2>
+          <p>Selects all elements with a particular ID</p>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<div id="my-id-selector">
+  I'll be green
+</div>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+#my-id-selector {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Compounding Selectors: pt 1</h2>
+          <p>no space == same element</p>
+
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<div class="headline fancy">
+  I'll be green
+</div>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+div.headline {
+  color: green;
+}
+/* or */
+.headline.fancy {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Compounding Selectors: pt 2</h2>
+          <p>space == parent/child selector</p>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<div class="headline">
+  <h1>I'll be green</h1>
+  <div>
+    <h1>I'm also green</h1>
+  </div>
+</div>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+.headline h1 {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1>Easy, right?</h1>
+        </section>
+        <section>
+          <h3>What now?</h3>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<h1 id="header" class="headline">
+  what color will i be?!
+</h1>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+h1 {
+  color: red;
+}
+
+h1 {
+  color: green;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>What about now?</h3>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<h1 id="header" class="headline">
+  what color will i be?!
+</h1>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+h1 {
+  color: red;
+}
+#header {
+  color: orange;
+}
+.headline {
+  color: blue;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Now?!</h3>
+          <div class='c-grid'>
+            <div>HTML:
+              <pre><code class="html">
+<div class="container">
+  <h1 id="header" class="headline">
+    what color will i be?!
+  </h1>
+</div>
+              </pre></code>
+            </div>
+            <div>CSS:
+              <pre><code class="css">
+div.container h1 {
+  color: red;
+}
+#header {
+  color: orange;
+}
+.container .headline {
+  color: blue;
+}
+              </pre></code>
+            </div>
+          </div>
+        </section>
+        <section>
+          <img src="images/panic.jpg" alt="panic">
+        </section>
+        <section>
+          <h1>Enter: The Cascade</h1>
+          <aside class="notes">We have to have a way to tell which styles take prescedence</aside>
+        </section>
+
+        <section>
+          <h2>Cascade: Order</h2>
+          <p>"The closer to the element, the more I care."</p>
+        </section>
+        <section>
+          <h3>Physically lower styles take prescedence</h3>
+          <pre><code class="css">
+h1 {
+  color: green;
+}
+div {
+  color: blue;
+}
+h1 {
+  color: orange; /* h1 will be orange */
+}
+          </code></pre>
+        </section>
+        <section>
+          <h3>Styles on elements take prescedence</h3>
+          <pre><code class="css">
+h1 {
+  color: green;
+}
+          </code></pre>
+          <pre><code class="html">
+<h1 style="color: purple;">I'll be purple.</h1>
+          </code></pre>
+          <p><i>USE SPARINGLY!</i></p>
+        </section>
+        <section>
+          <h2>Cascade: Specificity</h2>
+          <p>"The more specific it is, the more I care."</p>
+        </section>
+        <section>
+          <h2>Sounds Easy, right?</h2>
+          <img src="images/oh-sweetie.gif" alt="oh, sweetie" class="fragment">
+        </section>
+
+        <section class="stormtrooper">
+          <h3>Element Selectors</h3>
+          <code class="il">body section h1</code> ==
+
+          <table class="ctr">
+						<tr>
+							<th>element <br> <div class="inline-stormtrooper"></div></th>
+						</tr>
+						<tr>
+							<td>3</td>
+						</tr>
+					</table>
+        </section>
+
+        <section class="vader">
+          <h3>.class Selectors</h3>
+          <code class="il">.headline.content .primary .foo</code> ==
+
+          <table class="ctr">
+            <tr>
+							<th>.class <br> <div class="inline-vader"></div></th>
+              <th>element <br> <div class="inline-stormtrooper"></div></th>
+						</tr>
+						<tr>
+              <td>4</td>
+							<td>0</td>
+						</tr>
+					</table>
+        </section>
+
+        <section class="emperor">
+          <h3>#id Selectors</h3>
+          <code class="il">#main #home</code> ==
+
+          <table class="ctr">
+            <tr>
+              <th>#id <br> <div class="inline-emperor"></div></th>
+							<th>.class <br> <div class="inline-vader"></div></th>
+              <th>element <br> <div class="inline-stormtrooper"></div></th>
+						</tr>
+						<tr>
+              <td>2</td>
+              <td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+        </section>
+
+        <section>
+          <h3>Example</h3>
+          <code class="il">body #main.container h1.headline</code>
+
+          <table class="ctr">
+            <tr>
+              <th>#id <br> <div class="inline-emperor"></div></th>
+							<th>.class <br> <div class="inline-vader"></div></th>
+              <th>element <br> <div class="inline-stormtrooper"></div></th>
+						</tr>
+						<tr>
+              <td>1</td>
+              <td>2</td>
+							<td>2</td>
+						</tr>
+					</table>
+        </section>
+
+        <section>
+          <h3>Example</h3>
+          <code class="il">div span span span span b i i span span i b</code>
+
+          <table class="ctr">
+            <tr>
+              <th>#id <br> <div class="inline-emperor"></div></th>
+							<th>.class <br> <div class="inline-vader"></div></th>
+              <th>element <br> <div class="inline-stormtrooper"></div></th>
+						</tr>
+						<tr>
+              <td>0</td>
+              <td>0</td>
+							<td>12</td>
+						</tr>
+					</table>
+        </section>
+
+        <section>
+          <h3>Which is more specific?</h3>
+          <p>A: <code class="il">div span span span span b i i span span i a</code></p>
+          <p>B: <code class="il">.header</code></p>
+
+          <div class='c-grid fragment'>
+            <div>
+              <h3>A: </h3>
+              <table class="ctr">
+                <tr>
+                  <th>#id <br> <div class="inline-emperor"></div></th>
+    							<th>.class <br> <div class="inline-vader"></div></th>
+                  <th>element <br> <div class="inline-stormtrooper"></div></th>
+    						</tr>
+    						<tr>
+                  <td>0</td>
+                  <td>0</td>
+    							<td>12</td>
+    						</tr>
+    					</table>
+            </div>
+            <div>
+              <h3 style="background: green; color: white;">B: </h3>
+              <table class="ctr">
+                <tr>
+                  <th>#id <br> <div class="inline-emperor"></div></th>
+    							<th>.class <br> <div class="inline-vader"></div></th>
+                  <th>element <br> <div class="inline-stormtrooper"></div></th>
+    						</tr>
+    						<tr>
+                  <td>0</td>
+                  <td>1</td>
+    							<td>0</td>
+    						</tr>
+    					</table>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Which is more specific?</h3>
+          <p>A: <code class="il">#header-content</code></p>
+          <p>B: <code class="il">h3.header .header__content</code></p>
+
+          <div class='c-grid fragment'>
+            <div>
+              <h3 style="background: green; color: white;">A: </h3>
+              <table class="ctr">
+                <tr>
+                  <th>#id <br> <div class="inline-emperor"></div></th>
+    							<th>.class <br> <div class="inline-vader"></div></th>
+                  <th>element <br> <div class="inline-stormtrooper"></div></th>
+    						</tr>
+    						<tr>
+                  <td>1</td>
+                  <td>0</td>
+    							<td>0</td>
+    						</tr>
+    					</table>
+            </div>
+            <div>
+              <h3>B: </h3>
+              <table class="ctr">
+                <tr>
+                  <th>#id <br> <div class="inline-emperor"></div></th>
+    							<th>.class <br> <div class="inline-vader"></div></th>
+                  <th>element <br> <div class="inline-stormtrooper"></div></th>
+    						</tr>
+    						<tr>
+                  <td>0</td>
+                  <td>2</td>
+    							<td>1</td>
+    						</tr>
+    					</table>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Which is more specific?</h3>
+          <p>A: <code class="il">header#header-content h2.title</code></p>
+          <p>B: <code class="il">#header-content h2.title</code></p>
+
+          <div class='c-grid fragment'>
+            <div>
+              <h3 style="background: green; color: white;">A: </h3>
+              <table class="ctr">
+                <tr>
+                  <th>#id <br> <div class="inline-emperor"></div></th>
+    							<th>.class <br> <div class="inline-vader"></div></th>
+                  <th>element <br> <div class="inline-stormtrooper"></div></th>
+    						</tr>
+    						<tr>
+                  <td>1</td>
+                  <td>1</td>
+    							<td>2</td>
+    						</tr>
+    					</table>
+            </div>
+            <div>
+              <h3>B: </h3>
+              <table class="ctr">
+                <tr>
+                  <th>#id <br> <div class="inline-emperor"></div></th>
+    							<th>.class <br> <div class="inline-vader"></div></th>
+                  <th>element <br> <div class="inline-stormtrooper"></div></th>
+    						</tr>
+    						<tr>
+                  <td>1</td>
+                  <td>1</td>
+    							<td>1</td>
+    						</tr>
+    					</table>
+            </div>
+          </div>
+        </section>
+
+<!-- Semantics -->
+        <section>
+          <h1>Semantics</h1>
+          <p>Aka: Naming stuff.</p>
+        </section>
+        <section>
+          <h3>What would you label this?</h3>
+          <div class="c-grid">
+            <div>
+              <img src="images/toy-box.jpg">
+            </div>
+            <div>
+              <ul>
+                <li class="fragment">"big"</li>
+                <li class="fragment">"box"</li>
+                <li class="fragment">"white"</li>
+                <li class="fragment">"40in"</li>
+                <li class="fragment" style="color: green">"toys"</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>What would you label this?</h3>
+          <blockquote class="important_quote">There are only two hard things in computer science: cache invalidation, and naming things. -Phil Carlton</blockquote>
+        </section>
+
+        <section>
+          <h3>NO.</h3>
+          <pre><code class="css">
+.floatRight {
+   float: right
+}
+.floatLeft {
+   float: left
+}
+.Percent70Width {
+   width: 70%
+}
+.Percent20Width {
+   width: 25% /* WHAT?! */
+}
+.Height200Px {
+   height: 200px
+}
+.Height230Px {
+   height: 230px
+}
+.clear {
+   clear: both
+}
+.textarea {
+   height: 100px;
+   width: 100%
+}
+.displayNone {
+   display: none
+}
+#scannerImagePlaceholderDiv {
+   float: left;
+   display: block;
+   width: 250px;
+   height: 300px
+}
+.marginBottom30 {
+   margin-bottom: 30px
+}
+.Height40Px {
+   height: 55px /* WHY?! */
+}
+.centerText {
+   text-align: center
+}
+.bulkEditSelectionTable {
+   margin-left: auto;
+   margin-right: auto
+}
+.bulkEditSelectionTable th {
+   text-align: center;
+   padding-left: 5px;
+   padding-right: 5px
+}
+.bulkEditSelectionTable td {
+   padding-left: 5px;
+   padding-right: 5px
+}
+.width40Percent {
+   width: 40%
+}
+.width46Percent {
+   width: 46%
+}
+.width10Percent {
+   width: 10%
+}
+.width11Percent {
+   width: 11%
+}
+.width38Percent {
+   width: 38%
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <p>Name it what it <strong>IS</strong> not what it looks like.</p>
+        </section>
+        
+
+<!-- methodologies -->
+        <section>
+          <h1>CSS Methodologies</h1>
+        </section>
+        <section>
+          <h3>Problems With Traditional CSS development</h3>
+          <ul>
+            <li class="fragment">Specificity issues</li>
+            <li class="fragment">Difficult to locate styles</li>
+            <li class="fragment">Poor Context (What will break if this is modified?)</li>
+            <li class="fragment">Difficult to maintain consistency</li>
+          </ul>
+        </section>
+
+  <!-- IT CSS -->
+        <section>
+					<h1>IT CSS</h1>
+					<p>"Inverted Triangle" CSS</p>
+					<p>Solves the problem of <i>specificity.</i></p>
+        </section>
+        
+        <section>
+					<h2>Inverted Triangle CSS<h2>
+					<img src="images/it-css.png" alt="IT CSS">
+					<small>From CSSWizardry (Harry Roberts) @itcss</small>
+				</section>
+
+				<section>
+					<img src="images/normal-specificity.png" alt="Normal Specificity">
+					<p>Normal CSS Specificity</p>
+					<small>From @csswizardry (Harry Roberts)</small>
+				</section>
+
+				<section>
+					<img src="images/it-specificity.png" alt="Normal Specificity">
+					<p>IT CSS Specificity</p>
+					<small>From @csswizardry (Harry Roberts)</small>
+				</section>
+
+				<section>
+					<h3>How to structure CSS:</h3>
+					<ul>
+						<li class="fragment">Elements & Vertical-Rhythm selectors</li>
+						<li class="fragment">General Classes (80% + of code is here)</li>
+						<li class="fragment">Specific style overrides</li>
+						<li class="fragment">Media Query Overrides</li>
+					</ul>
+        </section>
+        
+  <!-- BEM --->
+				<section>
+					<h1>BEM</h1>
+					<h3>Block | Element | Modifier</h3>
+					<p>Solves the problems of Specificity, Context, &amp; Consistency</p>
+				</section>
+
+        <section>
+          <h2>Block</h2>
+          <p>The name of the component block.</p>
+          <div><code class="il">.card</code></div>
+        </section>
+
+        <section>
+          <h2>__Element</h2>
+          <p>An element inside of our block</p>
+          <p>Delineated by: <code class="il">__</code></p>
+          <div><code class="il">card__title</code></div>
+          <div><code class="il">card__content</code></div>
+        </section>
+
+        <section>
+          <h2>--Modifier</h2>
+          <p>a change from the default to a block or element</p>
+          <p>Delineated by: <code class="il">--</code></p>
+          <div><code class="il">card--large</code></div>
+          <div><code class="il">card__title--danger</code></div>
+        </section>
+
+        <section>
+          <h3>Example</h3>
+        
+          <div>
+            HTML:
+            <pre><code class="html">
+<div class="card">
+  <h1 class="card__title card__title--light">A Card</h1>
+  <div class="card__content">Some content</div>
+</div>
+            </code></pre>
+          </div>
+        </section>
+        <section>
+          <h3>Rendered CSS</h3>
+          <p>(IT CSS :thumbsup:)</p>
+          <pre><code class="css">
+.card {
+  border: 1px solid #ccc;
+}
+.card__title {
+  display: block;
+  background: #008000;
+}
+.card__title--light {
+  background: #ccc;
+}
+.card__content {
+  padding: 10px;
+}
+.card--danger {
+  background: #f00;
+}
+          </code></pre>
+        </section>
+
+
+				<!-- @todo: gotta actually put some real info in here for preso in june --->
+				<section>
+					<h3>What are BEM's Benefits?</h3>
+          <ul>
+            <li class="fragment">Avoids Nesting (single-level specificity)</li>
+            <li class="fragment">Clear picture of what CSS & HTML are doing</li>
+            <li class="fragment">Clearly delineates components</li>
+            <li class="fragment">Scales marvelously</li>
+          </ul>
+        </section>
+        
+<!-- Preprocessors -->
+        <section>
+          <h1>Preprocessors</h1>
+        </section>
+
+        <section>
+          <h2>What is it?</h2>
+          <p class="fragment">Write CSS more like "real" code</p>
+        </section>
+
+        <section>
+          <h2>Popular Preprocessors</h2>
+          <ul>
+            <li>Less</li>
+            <li>Sass</li>
+            <li>Stylus</li>
+            <li>Post CSS (technically a post-procesor)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>What can it do for me?</h2>
+        </section>
+
+        <section>
+          <h3>Use Variables</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+site.border := 1px solid #ccc
+.table{
+  border: site.border;
+
+  tr{
+    border: site.border;
+  }
+}
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.table{
+  border: 1px solid #cccccc;
+}
+.table tr{
+  border: 1px solid #cccccc;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Not Strict about syntax</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.test {
+  color: green
+}
+
+.test
+  color green
+
+.test
+  color: green;
+/* etc.. */
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.test {
+  color: green;
+}
+.test {
+  color: green;
+}
+.test {
+  color: green;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Nest Selectors</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.parent-class{
+  color: blue;
+
+  .child-class {
+    color: green;
+  }
+}
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.parent-class{
+  color: blue;
+}
+.parent-class .child-class {
+  color: green;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Nesting & Concatenation</h3>
+          <p>Understand the ampersand!</p>
+          <p><code class="il">&</code> == direct parent selector</p>
+        </section>
+
+
+        <section>
+          <h3>Nesting & Concatenation</h3>
+          <p>Understand the ampersand!</p>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.card
+  background: green
+
+  &__title
+    font-size: 2em;
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.card {
+  background: green;
+}
+.card__title {
+  font-size: 2em;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+
+        <section>
+          <h3>Nesting & Concatenation</h3>
+          <p>Understand the ampersand!</p>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.card
+  background: green
+
+  .has-overlay &
+    opacity: 0;
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.card {
+  background: green;
+}
+.has-overlay .card {
+  opacity: 0;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Nesting & Concatenation</h3>
+          <p>Understand the ampersand!</p>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.card
+  background: green
+
+  & + &
+    margin-right: 0.5em;
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.card {
+  background: green;
+}
+.card + .card {
+  margin-right: 0.5em;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Pro-Tip</h3>
+          <p>Don't over-ampersand!</p>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.card
+  background: green
+
+  &__title
+    font-size: 2em;
+    
+    &__username
+      display: block;
+    
+      &--secondary
+        color: #ccc;
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.card {
+  background: green;
+}
+.card__title {
+  font-size: 2em;
+}
+.card__title__username {
+  display: block;
+}
+.card__title__username--secondary {
+  color: #ccc;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>And More...</h2>
+        </section>
+
+        <section>
+          <h3>Auto-Prefixing</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.chicken
+  display: flex
+  flex-flow: row wrap
+  justify-content: space-between
+  align-items: stretch
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.chicken {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h3>Mixins</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.test
+  +simplified_bem()
+    color: green
+
+
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.test,
+[class^='test--'],
+[class*=' test--'] {
+  color: green;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Functions</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+.test
+  color: get-color('primary')
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+.test{
+  color: #fce3cf;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Looping & Interpolation</h3>
+          <div class="c-grid">
+            <div>
+              Stylus:
+              <pre><code class="css">
+table
+  for row in 1 2 3
+    tr:nth-child({row})
+      height: 10px * row
+              </code></pre>
+            </div>
+            <div>
+              CSS:
+              <pre><code class="css">
+table tr:nth-child(1) {
+  height: 10px;
+}
+table tr:nth-child(2) {
+  height: 20px;
+}
+table tr:nth-child(3) {
+  height: 30px;
+}
+              </code></pre>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Don't forget to add sourcemaps!</h2>
+        </section>
+
+
+
+<!-- Pro-Tips -->
+        <section>
+          <h1>Pro-Tips!</h1>
+          <p>TL;DR; of fixing the common things</p>
+        </section>
+
+        <section>
+          <h2>Units Of Measure</h2>
+          <p>We all know <code class="il">px</code>, but...</p>
+        </section>
+        <section>
+          <h3><code class="il">em</code></h3>
+          <p class="fragment">Sized based on element's font-size</p>
+        </section>
+        <section>
+          <h3><code class="il">rem</code></h3>
+          <p class="fragment"><b>Root em</b>: Sized based on <b>HTML's</b> font-size</p>
+        </section>
+        <section>
+          <h3><code class="il">vw/vh</code></h3>
+          <p class="fragment">100 == full current width/height of <b>viewport</b></p>
+        </section>
+
+        <section>
+          <h3>Box Model</h3>
+          Elements are generally either <code class="il">Block</code> or <code class="il">Inline</code>.
+        </section>
+
+        <section>
+          <h3>Inline Elements</h3>
+          <p><b>Limited</b> ability to style!</p>
+          <ul>
+            <li><code class="il">span</code></li>
+            <li><code class="il">b</code>, <code class="il">i</code></li>
+            <li>etc...</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Block Elements</h3>
+          <p>Style everything!</p>
+          <img src="images/box-model.png" alt="box model">
+        </section>
+
+        <section>
+          <h3>Center Alignment</h3>
+          <p>TL;DR: flexbox</p>
+          <div class="c-grid">
+            <div>
+              CSS:
+              <pre><code class="css">
+.the-thing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+              </code></pre>
+            </div>
+            <div>
+              <div style="height: 100%; width: 100%; background-color: #ccc; display: flex;align-items: center;justify-content: center;">
+                Very center, much wow!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Z-Index</h3>
+          <p>It only cares about <b>siblings</b></p>
+          <div class="c-grid">
+            <div>
+              CSS:
+              <pre><code class="css">
+.foo {
+  background: #ccc;
+  height: 60px;
+  margin-top: 1em;
+}
+.foo__bar {
+  background: #69c;
+  height: 100px;
+  z-index: 100;
+  width: 230px;
+}
+/* on click, adds class */
+.foo--active {
+  position: relative;
+  z-index: 2;
+}
+              </code></pre>
+            </div>
+            <div>
+              <div class="foo" onclick="this.classList.toggle('foo--active')">
+                foo
+                <div class="foo__bar">foo__bar</div>
+              </div>
+              <div class="foo">
+                foo
+              </div>
+              <div class="foo">
+                foo
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Z-Indexing</h3>
+          <ol>
+            <li>must be on <b>sibling</b> to other elements to z-index over (likely a parent)</li>
+            <li>sinling must be <code class="il">position: "relative"</code></li>
+          </ol>
+        </section>
+
+
+
+        <section>
+          <h1>Dev Tools</h1>
+        </section>
+        <section>
+          <h3>Live coding!</h3>
+          <img src="images/live-dangerously.jpg" alt="i also like to live dangerously"><br>
+          <a href="http://localhost:8282" target="_blank">Example!</a>
+        </section>
+<!-- final slides -->
+        <section>
+          <h1>More Reading</h1>
+        </section>
+        <section>
+          <h2>Methodologies</h2>
+          <ul class="spaced-out">
+            <li><b>SMACSS</b> - How to structure css to make it scale well</li>
+            <li><b>Namespacing</b> - How to write css classes to make them understandable for developers</li>
+            <li><b>OOCSS</b> - bringing object-oriented approaches into CSS</li>
+            <li><b>Mobile-First</b> - writing code mobile-friendly</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Google this!</h2>
+          <ul class="spaced-out">
+            <li><code class="il">:before </code>& <code class="il">:after</code> pseudo elements</li>
+            <li><code class="il">calc()</code></li>
+            <li><code class="il">currentColor</code></li>
+            <li>lobotomized owl selector <code class="il">* + *</code></li>
+            <li>Flexbox & Grid</li>
+          </ul>
+        </section>
+
+        <section class="inmar">
+          <div class="c-grid">
+            <div>
+              <img src="images/inmar/logo.png" alt="inmar">
+              <h4>Intelligent Commerce</h4>
+              <p>Billions transactions and shopper engagements flow through our systems. For over 35 years, Inmar has been the leader in North America for managing promotional dollars, loyalty and shopper engagement; logistics and supply chain; and healthcare and pharmaceuticals.</p>
+              <p>We employ the best engineers across North America and the world to work on rich web and mobile applications, big data and real-time analytics, embedded and RF logistics for supply chain and warehouses, and more. If you think you have what it takes, apply to join the team!</p>
+            </div>
+            <div>
+              <!-- intentionally blank for bg to appear-->
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h1>Questions?</h1>
+          <p>Twitter/Github:</p>
+          <p>@mistersender</p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
