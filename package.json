@@ -12,7 +12,7 @@
     "start": "gulp watch",
     "build": "gulp build"
   },
-  "author": "Jessica Kennedy <jessica.kennedy@inmar.com>",
+  "author": "Jessica Keener <jessica.kennedy@inmar.com>",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.0",
