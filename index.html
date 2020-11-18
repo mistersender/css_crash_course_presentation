@@ -125,9 +125,8 @@
             <li class="fragment">The Cascade</li>
             <li class="fragment">Semantic CSS</li>
             <li class="fragment">Methodologies</li>
-            <li class="fragment">Prerocessors</li>
-            <li class="fragment">Pro-Tips</li>
-            <li class="fragment">Live Coding!</li>
+            <li class="fragment">Preprocessors</li>
+            <li class="fragment">Things to Google</li>
           </ul>
         </section>
 
@@ -168,6 +167,45 @@
           <h2>Rule Anatomy</h2>
           <img src="images/anatomy-of-a-css-rule.gif" alt="anatomy of a css rule">
         </section>
+
+
+        <!-- Basics of using inspector and units of measure -->
+        <section>
+          <h3>Box Model</h3>
+          Elements are generally either <code class="il">Block</code> or <code class="il">Inline</code>.
+        </section>
+        
+        <section>
+          <h3>Inline Elements</h3>
+          <p><b>Limited</b> ability to style!</p>
+          <ul>
+            <li><code class="il">span</code></li>
+            <li><code class="il">b</code>, <code class="il">i</code></li>
+            <li>etc...</li>
+          </ul>
+        </section>
+        
+        <section>
+          <h3>Block Elements</h3>
+          <p>Style everything!</p>
+          <img src="images/box-model.png" alt="box model">
+        </section>
+        
+        <section>
+          <h3>Live Coding!</h3>
+          <img src="images/live-dangerously.jpg" alt="i also like to live dangerously"><br>
+          <a href="http://localhost:8282/block.html" target="_blank">Example!</a>
+          <aside class="notes">
+            <ul>
+              <li>Get to Inspector</li>
+              <li>margin, padding, border, width/height</li>
+              <li>working on a block element, and NOT working on an inline element</li>
+              <li>using arrow keys for numbers</li>
+            </ul>
+          </aside>
+        </section>
+
+
         <section>
           <h1>Selectors</h1>
           <p>How CSS knows what elements to apply rules to</p>
@@ -369,7 +407,7 @@ div.container h1 {
 
         <section>
           <h2>Cascade: Order</h2>
-          <p>"The closer to the element, the more I care."</p>
+          <p>"Styles loaded later override those loaded earlier"</p>
         </section>
         <section>
           <h3>Physically lower styles take prescedence</h3>
@@ -385,18 +423,6 @@ h1 {
 }
           </code></pre>
           <aside class="notes">Think of this like a "merge" function</aside>
-        </section>
-        <section>
-          <h3>Styles on elements take prescedence</h3>
-          <pre><code class="css">
-h1 {
-  color: green;
-}
-          </code></pre>
-          <pre><code class="html">
-<h1 style="color: purple;">I'll be purple.</h1>
-          </code></pre>
-          <p><i>USE SPARINGLY!</i></p>
         </section>
         <section>
           <h2>Cascade: Specificity</h2>
@@ -606,6 +632,41 @@ h1 {
     					</table>
             </div>
           </div>
+        </section>
+
+        <section>
+          <h3>Nuclear Options</h3>
+          <p>Use with care!</p>
+          <img src="images/elmo-fire.gif"/>
+        </section>
+
+        <section>
+          <h3>Styles on elements take prescedence</h3>
+          <pre><code class="css">
+h1 {
+  color: green;
+}
+          </code></pre>
+          <pre><code class="html">
+<h1 style="color: purple;">I'll be purple.</h1>
+          </code></pre>
+          <p><i>USE SPARINGLY!</i></p>
+        </section>
+
+        <section>
+          <h3><code class="il">!important</code> tags</h3>
+          <pre><code class="css">
+h1 {
+  color: orange !important;
+}
+#headline {
+  color: red;
+}
+          </code></pre>
+          <pre><code class="html">
+<h1 id="headline" style="color: green;">I'll be orange.</h1>
+          </code></pre>
+          <p><i>USE SPARINGLY!</i></p>
         </section>
 
 <!-- Semantics -->
@@ -876,22 +937,22 @@ h1 {
               Stylus:
               <pre><code class="css">
 site.border := 1px solid #ccc
-.table{
-  border: site.border;
 
-  tr{
-    border: site.border;
-  }
+.table {
+  border: site.border;
+}
+.card {
+  border: site.border;
 }
               </code></pre>
             </div>
             <div>
               CSS:
               <pre><code class="css">
-.table{
+.table {
   border: 1px solid #cccccc;
 }
-.table tr{
+.card {
   border: 1px solid #cccccc;
 }
               </code></pre>
@@ -940,7 +1001,7 @@ site.border := 1px solid #ccc
             <div>
               Stylus:
               <pre><code class="css">
-.parent-class{
+.parent-class {
   color: blue;
 
   .child-class {
@@ -952,7 +1013,7 @@ site.border := 1px solid #ccc
             <div>
               CSS:
               <pre><code class="css">
-.parent-class{
+.parent-class {
   color: blue;
 }
 .parent-class .child-class {
@@ -962,7 +1023,7 @@ site.border := 1px solid #ccc
             </div>
           </div>
         </section>
-
+<!-- 
         <section>
           <h3>Nesting & Concatenation</h3>
           <p>Understand the ampersand!</p>
@@ -1096,7 +1157,7 @@ site.border := 1px solid #ccc
         </section>
         <section>
           <h2>And More...</h2>
-        </section>
+        </section> -->
 
         <section>
           <h3>Auto-Prefixing</h3>
@@ -1137,7 +1198,18 @@ site.border := 1px solid #ccc
             </div>
           </div>
         </section>
+
         <section>
+          <h3>And more!</h3>
+          <ul>
+            <li>Functions</li>
+            <li>Looping</li>
+            <li>Interpolation</li>
+            <li>Inlining Images</li>
+          </ul>
+        </section>
+        
+        <!-- <section>
           <h3>Mixins</h3>
           <div class="c-grid">
             <div>
@@ -1211,7 +1283,7 @@ table tr:nth-child(3) {
               </code></pre>
             </div>
           </div>
-        </section>
+        </section> -->
         <section>
           <h2>Don't forget to add sourcemaps!</h2>
         </section>
@@ -1219,7 +1291,7 @@ table tr:nth-child(3) {
 
 
 <!-- Pro-Tips -->
-        <section>
+        <!-- <section>
           <h1>Pro-Tips!</h1>
         </section>
 
@@ -1239,107 +1311,22 @@ table tr:nth-child(3) {
           <h3><code class="il">vw/vh</code></h3>
           <p class="fragment">100 == full current width/height of <b>viewport</b></p>
         </section>
-
-        <section>
-          <h3>Box Model</h3>
-          Elements are generally either <code class="il">Block</code> or <code class="il">Inline</code>.
-        </section>
-
-        <section>
-          <h3>Inline Elements</h3>
-          <p><b>Limited</b> ability to style!</p>
-          <ul>
-            <li><code class="il">span</code></li>
-            <li><code class="il">b</code>, <code class="il">i</code></li>
-            <li>etc...</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3>Block Elements</h3>
-          <p>Style everything!</p>
-          <img src="images/box-model.png" alt="box model">
-        </section>
-
-        <section>
-          <h3>Center Alignment</h3>
-          <p>TL;DR: flexbox</p>
-          <div class="c-grid">
-            <div>
-              CSS:
-              <pre><code class="css">
-.the-thing {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-              </code></pre>
-            </div>
-            <div>
-              <div style="height: 100%; width: 100%; background-color: #ccc; display: flex;align-items: center;justify-content: center;">
-                Very center, much wow!
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h3>Z-Index</h3>
-          <p>It only cares about <b>siblings</b></p>
-          <div class="c-grid">
-            <div>
-              CSS:
-              <pre><code class="css">
-.foo {
-  background: #ccc;
-  height: 60px;
-  margin-top: 1em;
-}
-.foo__bar {
-  background: #69c;
-  height: 100px;
-  z-index: 100;
-  width: 230px;
-}
-/* on click, adds class */
-.foo--active {
-  position: relative;
-  z-index: 2;
-}
-              </code></pre>
-            </div>
-            <div>
-              <div class="foo" onclick="this.classList.toggle('foo--active')">
-                foo
-                <div class="foo__bar">foo__bar</div>
-              </div>
-              <div class="foo">
-                foo
-              </div>
-              <div class="foo">
-                foo
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h3>Z-Indexing</h3>
-          <ol>
-            <li>must be on <b>sibling</b> to other elements to z-index over (likely a parent)</li>
-            <li>sibling must be <code class="il">position: "relative"</code></li>
-          </ol>
-        </section>
+ -->
 
 
-
-        <section>
-          <h1>Dev Tools</h1>
-        </section>
         <section>
           <h3>Live coding!</h3>
-          <img src="images/live-dangerously.jpg" alt="i also like to live dangerously"><br>
+          <img src="images/also-live-dangerously.jpg" alt="i also like to live dangerously"><br>
           <a href="http://localhost:8282" target="_blank">Example!</a>
+          <aside class="notes">
+            <ul>
+              <li>show selectors in action</li>
+              <li>show "--secondary" override, & show in computed</li>
+              <li>cover em, rem, vw/vh</li>
+              <li>show sourcemaps</li>
+              <li>hover state toggling</li>
+            </ul>
+          </aside>
         </section>
 <!-- final slides -->
         <section>

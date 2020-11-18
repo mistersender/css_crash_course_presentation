@@ -5,10 +5,16 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-  <title>Ems Example</title>
+  <title>Block Model Example</title>
   <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   <link href='css/base-styles.css' rel='stylesheet' type='text/css'>
   <link href='main.css' rel='stylesheet' type='text/css'>
+  <style>
+    .block-example{
+      background-color: #a3e2f2;
+      border: 5px solid orange;
+    }
+  </style>
 </head>
 
 <!--
@@ -17,17 +23,10 @@
   * sizes?
 -->
 <body>
-<header class="o-wrapper">CSS Playground</header>
+<header class="o-wrapper">Block Model</header>
 <main class="o-wrapper">
 
-<div class="pseudo--fancy">Here's a pseudo element</div>
-<!-- content goes here -->
-<div class="test">test</div>
-<div class="test">test</div>
-<div class="test">test</div>
-<div class="test">test</div>
-<div class="test">test</div>
-<div class="test test--secondary">secondary test</div>
+  <div class="block-example">Inspect me!</div>
 
 </main>
 <footer class="o-wrapper">&copy; 2020 Jessica Keener</footer>

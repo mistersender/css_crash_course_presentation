@@ -17,8 +17,6 @@ This is essentially a merging of the "css fundamentals" and "css intermediate" p
 * Pro Tips
   * Units of Measure
   * Box Model
-  * center alignment
-  * `z-index`
 * Dev Tools
   * show general inspector
     * arrow keys on numbers (command + 100, option + .1, shift + 10)
