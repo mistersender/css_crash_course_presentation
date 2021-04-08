@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "echo \"testing, shmesting\"",
-    "start": "gulp watch",
+    "start": "open ./index.html; gulp watch",
     "build": "gulp build"
   },
   "author": "Jessica Keener <jessica.kennedy@inmar.com>",
